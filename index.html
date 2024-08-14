@@ -95,24 +95,12 @@
         <button type="button" onclick="bootConstello()">Run My Code</button>
         <h2>If you do not have a ROTUR account, message me @ThatBeaverDev on Discord, and I can register you one.</h2>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
     <script>
-        const CryptoJS = require('crypto-js');
-
         function bootConstello() {
             let user = document.getElementById("roturaccuser").value;
+            let pass = document.getElementById("roturaccpass").value;
             let code = document.getElementById("code").value;
-
-            // Encrypt the password
-            const password = document.getElementById("roturaccpass").value;
-            const secretKey = 'rCyQ4$U7PHOJvncoAfht4fz06^8iik1Ugl&$B5v86$HnwH#NucObEQMU8XYQZStU#neSFgOrfIY1BLH#I52TQcyJmPOAozmHvS8blvy7MF^v^!wCdz&J$oZ1%Atf$Oul'; // Make sure to keep this key secure
-            const encryptedPassword = CryptoJS.AES.encrypt(password, secretKey).toString();
-
-            // Store the encrypted password in localStorage
-            localStorage.setItem('tempPassword', encryptedPassword);
-
-            // Open the new tab
-            const newTab = window.open(("https://constellinux.github.io/Constello/Constello/v0.0.1?user=" + user + "&pass=" + pass + "&code=" + code), '_blank').focus();
+            window.open(("https://constellinux.github.io/Constello/Constello/v0.0.1.html?user=" + user + "&pass=" + pass + "&code=" + code), '_blank').focus();
         }
     </script>
 </body>
