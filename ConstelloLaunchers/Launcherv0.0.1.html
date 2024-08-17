@@ -92,22 +92,15 @@
         <input type="text" id="roturaccuser" name="roturaccuser">
         <label for="roturaccpass">Enter your Rotur Account's Password Here:</label>
         <input type="password" id="roturaccpass" name="roturaccpass">
-        <label for="gitrepo">Provide A GitHub Link (github.com/Constellinux/Constello/main -> Constellinux/Constello/main/) (optional)</label>
-        <input type="text" id="gitrepo" name="gitrepo">
         <button type="button" onclick="bootConstello()">Run My Code</button>
-        <p>If you do not have a ROTUR account, message me @ThatBeaverDev on Discord, and I can register you one.</p>
+        <h2>If you do not have a ROTUR account, message me @ThatBeaverDev on Discord, and I can register you one.</h2>
     </div>
     <script>
         function bootConstello() {
             let user = document.getElementById("roturaccuser").value;
             let pass = document.getElementById("roturaccpass").value;
             let code = document.getElementById("code").value;
-            let gitrepo = document.getElementById("gitrepo").value;
-            if (gitrepo == "") {
-                window.open(("https://constellinux.github.io/Constello/Constello/v0.0.2.html?user=" + user + "&pass=" + pass + "&code=" + code), '_blank').focus();
-            } else {
-                window.open(("https://constellinux.github.io/Constello/Constello/v0.0.2.html?user=" + user + "&pass=" + pass + "&adv=" + gitrepo), '_blank').focus();
-            }
+            window.open(("https://constellinux.github.io/Constello/Constello/v0.0.1.html?user=" + user + "&pass=" + pass + "&code=" + code), '_blank').focus();
         }
     </script>
 </body>
