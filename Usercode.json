@@ -1,0 +1,11 @@
+{
+    "name":"Usercode",
+    "author":"null",
+    "version":"0.0.1",
+    "startup":[],
+    "roturAuth":true,
+    "startAppShortcut":true,
+    "persistentFiles":false,
+    "files":[],
+    "specialperms":{}
+}
