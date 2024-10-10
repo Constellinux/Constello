@@ -1,6 +1,7 @@
-{
-    "Constellinux":{
+[
+    {
+        "Name":"Constellinux",
         "Author":"ThatBeaverDev",
         "endpoint":"/Constellinux/Constellinux/main/"
     }
-}
+]
