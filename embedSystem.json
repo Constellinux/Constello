@@ -1,0 +1,16 @@
+{
+    "name":"Embedded Code",
+    "author":"Undefined",
+    "version":"0.0.1",
+    "buildNumber":"1",
+    "startup":[
+        {
+            "name":"/sys/crl/embed.crl",
+            "windowed":true
+        }
+    ],
+    "roturAuth":false,
+    "startAppShortcut":false,
+    "files":[],
+    "specialperms":{}
+}

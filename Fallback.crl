@@ -1,0 +1,7 @@
+/@ event start:
+window.name = "Heya!"
+/@ event frame:
+ui.text("Chances are you got here by accident, that's OK."; 3)
+ui.text("Basically, you need to set either ?code or ?adv to boot the container properly."; 3)
+ui.text("Either that or visit constellinux.github.io/Constello to boot a system from there."; 3)
+ui.text("Enjoy!"; 3)
