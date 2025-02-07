@@ -41,7 +41,23 @@ function reTokenise(p0) {
         obj = {}
         obj.data = {}
         obj.type = undefined
-        if (tokentype(lines[line]) == "code" && code.length == 1) {
+        if (lines[line][0] === "(" && lines[line].slice(-1) === ")") {
+            i = lines[line].indexOf("(")
+            args = lines[line].lastIndexOf(")")
+            obj = tokenise(lines[line].substring(i + 1, args))
+            for (let i = 0; i < obj.length; i++) {
+                temp = {}
+                temp.data = obj[i]
+                temp.type = tokentype(temp.data)
+                if (temp.type == "code") {
+                    temp = reTokenise(temp.data)[0]
+                }
+                if (temp.type == "variable") {
+                    temp.data = temp.data.split(".")
+                }
+                obj[i] = temp
+            }
+        } else if (tokentype(lines[line]) == "code" && code.length == 1) {
             i = lines[line].indexOf("(")
             cmd = lines[line].substring(0, i).split(".")
             args = lines[line].lastIndexOf(")")
@@ -63,7 +79,7 @@ function reTokenise(p0) {
             obj.type = "code"
         } else {
             obj.data.cmd = code[i].split(".")
-            obj.data.args = code
+            obj.data.args = Object.clone(code)
             obj.data.args.splice(0,1)
             for (i = 0; i < obj.data.args.length; i++) {
                 temp = {}
@@ -76,7 +92,11 @@ function reTokenise(p0) {
                 }
                 obj.data.args[i] = temp
             }
-            obj.type = "varAssign"
+            if (code[2][0] == "(" && code[2].slice(-1) == ")") {
+                obj.type = "code"
+            } else {
+                obj.type = "varAssign"
+            }
         }
         result.push(obj)
     }
